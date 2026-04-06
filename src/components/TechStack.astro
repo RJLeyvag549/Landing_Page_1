@@ -1,0 +1,117 @@
+---
+const technologies = [
+	{ name: "Python", category: "Lenguaje Principal", icon: "Py" },
+	{ name: "PyTorch", category: "Deep Learning", icon: "PT" },
+	{ name: "TensorFlow", category: "Deep Learning", icon: "TF" },
+	{ name: "Docker", category: "DevOps", icon: "D" },
+	{ name: "Docker Compose", category: "Orquestación", icon: "DC" },
+	{ name: "Zernike", category: "Óptica", icon: "Z" },
+	{ name: "BPMN", category: "Modelado", icon: "B" },
+	{ name: "IEEE 830", category: "Estándar Software", icon: "I" }
+];
+---
+
+<section id="stack" class="stack">
+	<div class="section-header">
+		<h2 class="section-title">Stack <span class="gradient-text">Tecnológico</span></h2>
+		<p class="section-subtitle">Herramientas y estándares utilizados en el ciclo de vida del proyecto.</p>
+	</div>
+	<div class="stack-grid">
+		{technologies.map((tech) => (
+			<div class="tech-item glass">
+				<div class="tech-icon">{tech.icon}</div>
+				<div class="tech-info">
+					<h4 class="tech-name">{tech.name}</h4>
+					<p class="tech-category">{tech.category}</p>
+				</div>
+			</div>
+		))}
+	</div>
+</section>
+
+<style>
+	.stack {
+		text-align: center;
+	}
+
+	.section-header {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		color: white;
+	}
+
+	.section-subtitle {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.stack-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.tech-item {
+		display: flex;
+		align-items: center;
+		padding: 1.5rem;
+		border-radius: 20px;
+		gap: 1.25rem;
+		transition: transform 0.2s, background 0.2s;
+	}
+
+	.tech-item:hover {
+		transform: translateY(-5px);
+		background: rgba(255, 255, 255, 0.05);
+	}
+
+	.tech-icon {
+		width: 48px;
+		height: 48px;
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid var(--glass-border);
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		color: var(--accent-cyan);
+		font-size: 1.25rem;
+	}
+
+	.tech-info {
+		text-align: left;
+	}
+
+	.tech-name {
+		font-size: 1.1rem;
+		font-weight: 600;
+		color: white;
+		margin: 0;
+	}
+
+	.tech-category {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		margin: 0;
+	}
+
+	.gradient-text {
+		background: linear-gradient(135deg, #4481eb 0%, #04befe 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2.25rem;
+		}
+	}
+</style>

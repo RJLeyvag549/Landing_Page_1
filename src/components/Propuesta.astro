@@ -1,0 +1,145 @@
+---
+---
+
+<section id="propuesta" class="propuesta">
+	<div class="section-header">
+		<h2 class="section-title typing-title">Propuesta de <span class="gradient-text">Solución</span></h2>
+		<p class="section-subtitle">Un ecosistema integrado para la reconstrucción de fase mediante inferencia neuronal.</p>
+	</div>
+
+	<div class="propuesta-container glass">
+		<div class="propuesta-intro">
+			<p>
+				Se propone el desarrollo de un <strong>Software de Simulación y Reconstrucción de Frente de Onda Basado en Inferencia Neuronal</strong>, concebido como una plataforma que trascienda las limitaciones de los métodos actuales.
+			</p>
+		</div>
+
+		<div class="axes-grid">
+			<div class="axis-item">
+				<div class="axis-icon">SW</div>
+				<h3 class="axis-title">Componente de Software</h3>
+				<p class="axis-desc">
+					Aplicación con interfaz gráfica (Frontend) diseñada como centro de control. Permite configurar simulaciones atmosféricas, visualizar datos CMOS en tiempo real y obtener coeficientes de aberración instantáneamente, automatizando flujos hoy manuales.
+				</p>
+			</div>
+			<div class="axis-item">
+				<div class="axis-icon">INV</div>
+				<h3 class="axis-title">Componente de Investigación</h3>
+				<p class="axis-desc">
+					Diseño y entrenamiento de una Red Neuronal Convolucional (CNN) optimizada para regresión de fase. Se investigará la capacidad de la IA para procesar señales con baja relación señal-ruido, superando la precisión de algoritmos clásicos.
+				</p>
+			</div>
+		</div>
+
+		<div class="propuesta-conclusion">
+			<p>
+				Al centralizar la operación en una capa de software, no solo se logra el procesamiento en tiempo real, sino que se protege la integridad física de los componentes del laboratorio, permitiendo una experimentación científica más <strong>ágil, segura y precisa</strong>.
+			</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.propuesta {
+		text-align: center;
+	}
+
+	.section-header {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		color: white;
+	}
+
+	.section-subtitle {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.propuesta-container {
+		padding: 4rem;
+		border-radius: 32px;
+		text-align: left;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.propuesta-intro p {
+		font-size: 1.25rem;
+		color: white;
+		line-height: 1.6;
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+
+	.axes-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		margin-bottom: 3rem;
+	}
+
+	.axis-item {
+		background: rgba(255, 255, 255, 0.02);
+		padding: 2.5rem;
+		border-radius: 20px;
+		border: 1px solid var(--glass-border);
+		position: relative;
+	}
+
+	.axis-icon {
+		position: absolute;
+		top: -15px;
+		left: -15px;
+		background: linear-gradient(135deg, #4481eb 0%, #04befe 100%);
+		width: 50px;
+		height: 50px;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-weight: 800;
+		font-size: 0.9rem;
+		box-shadow: 0 4px 15px rgba(4, 190, 254, 0.4);
+	}
+
+	.axis-title {
+		font-size: 1.5rem;
+		color: white;
+		margin-bottom: 1.25rem;
+		font-family: 'Plus Jakarta Sans', sans-serif;
+	}
+
+	.axis-desc {
+		font-size: 1rem;
+		color: var(--text-secondary);
+		line-height: 1.7;
+	}
+
+	.propuesta-conclusion p {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		line-height: 1.8;
+		text-align: center;
+		border-top: 1px solid var(--glass-border);
+		padding-top: 2rem;
+	}
+
+	/* Global gradient-text is used from Layout.astro */
+
+	@media (max-width: 768px) {
+		.axes-grid {
+			grid-template-columns: 1fr;
+		}
+		.propuesta-container {
+			padding: 2rem;
+		}
+	}
+</style>

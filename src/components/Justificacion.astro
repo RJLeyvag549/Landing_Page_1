@@ -1,0 +1,224 @@
+---
+const points = [
+	{
+		title: "Robustez y Extracción Inteligente",
+		description: "Las CNN actúan como extractores de características avanzados, 'entendiendo' la geometría de la luz y reconstruyendo el frente de onda incluso en escenarios de alta degradación y ruido extremo.",
+		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>'
+	},
+	{
+		title: "Democratización y Escalabilidad",
+		description: "El uso de hardware comercial y Docker desacopla el software del equipo físico, transformando el laboratorio en un entorno portátil y seguro para la formación práctica masiva.",
+		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>'
+	},
+	{
+		title: "Agilidad en el Prototipado",
+		description: "Acelera el ciclo de validación de modelos de Deep Learning al eliminar la dependencia de infraestructuras propietarias complejas, permitiendo innovación continua sin límites de hardware.",
+		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>'
+	},
+	{
+		title: "Alto Rendimiento en Tiempo Real",
+		description: "La arquitectura garantiza una gestión eficiente de streams de video de alta carga, alcanzando la fluidez necesaria para aplicaciones de monitoreo astronómico dinámico.",
+		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>'
+	}
+];
+---
+
+<section id="justificacion" class="justificacion">
+	<div class="justificacion-top">
+		<h2 class="section-title typing-title">Justificación del <span class="gradient-text">Proyecto</span></h2>
+		<p class="section-subtitle">Alineación con la hoja de ruta tecnológica del ELT y la astronomía de próxima generación.</p>
+	</div>
+
+	<div class="elt-context glass">
+		<div class="elt-text">
+			<h3 class="elt-title">Transición al Big Data Óptico</h3>
+			<p>
+				El <strong>Extremely Large Telescope (ELT)</strong> de la ESO, con su espejo de 39 metros, enfrenta desafíos sin precedentes. Los métodos de control tradicionales ya no son óptimos ante la no-linealidad de la turbulencia a gran escala y la necesidad de reducir latencias críticas.
+			</p>
+		</div>
+		<div class="elt-stats">
+			<div class="stat-box">
+				<span class="stat-num">39m</span>
+				<span class="stat-txt">Espejo Principal</span>
+			</div>
+			<div class="stat-box">
+				<span class="stat-num">798</span>
+				<span class="stat-txt">Segmentos</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="superiority-header">
+		<h3 class="superiority-title typing-title">¿Por qué la solución basada en IA es <span class="gradient-text">superior</span>?</h3>
+	</div>
+
+	<div class="points-grid">
+		{points.map((point) => (
+			<div class="point-card glass">
+				<div class="point-icon" set:html={point.icon} />
+				<h4 class="point-title">{point.title}</h4>
+				<p class="point-desc">{point.description}</p>
+			</div>
+		))}
+	</div>
+
+	<div class="justificacion-conclusion glass">
+		<p>
+			Se aborda el reto desde una perspectiva de <strong>ingeniería de software robusta, eficiente y escalable</strong>, reduciendo drásticamente la dependencia de software propietario costoso.
+		</p>
+	</div>
+</section>
+
+<style>
+	.justificacion {
+		text-align: center;
+	}
+
+	.justificacion-top {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		color: white;
+	}
+
+	.section-subtitle {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.elt-context {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		padding: 3rem;
+		border-radius: 24px;
+		text-align: left;
+		gap: 4rem;
+		margin-bottom: 4rem;
+		align-items: center;
+	}
+
+	.elt-title {
+		font-size: 1.75rem;
+		color: white;
+		margin-bottom: 1.5rem;
+		font-family: 'Plus Jakarta Sans', sans-serif;
+	}
+
+	.elt-text p {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		line-height: 1.8;
+	}
+
+	.elt-stats {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.stat-box {
+		background: rgba(255, 255, 255, 0.05);
+		padding: 1.5rem 2rem;
+		border-radius: 16px;
+		border: 1px solid var(--glass-border);
+		text-align: center;
+	}
+
+	.stat-num {
+		display: block;
+		font-size: 2.5rem;
+		font-weight: 800;
+		color: var(--accent-cyan);
+		font-family: 'Plus Jakarta Sans', sans-serif;
+	}
+
+	.stat-txt {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.superiority-header {
+		margin-bottom: 3rem;
+	}
+
+	.superiority-title {
+		font-size: 2.25rem;
+		color: white;
+	}
+
+	.points-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 2rem;
+		margin-bottom: 4rem;
+	}
+
+	.point-card {
+		padding: 3rem;
+		border-radius: 24px;
+		text-align: left;
+		transition: transform 0.3s;
+	}
+
+	.point-card:hover {
+		transform: translateY(-5px);
+		background: rgba(255, 255, 255, 0.05);
+	}
+
+	.point-icon {
+		width: 48px;
+		height: 48px;
+		margin-bottom: 1.5rem;
+		color: var(--accent-cyan);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.point-title {
+		font-size: 1.4rem;
+		color: white;
+		margin-bottom: 1.25rem;
+		font-family: 'Plus Jakarta Sans', sans-serif;
+	}
+
+	.point-desc {
+		font-size: 1rem;
+		color: var(--text-secondary);
+		line-height: 1.7;
+	}
+
+	.justificacion-conclusion {
+		padding: 2.5rem;
+		border-radius: 24px;
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.justificacion-conclusion p {
+		font-size: 1.15rem;
+		color: var(--text-secondary);
+		line-height: 1.8;
+		margin: 0;
+	}
+
+	/* Global gradient-text is used from Layout.astro */
+
+	@media (max-width: 968px) {
+		.elt-context {
+			grid-template-columns: 1fr;
+			padding: 2rem;
+			gap: 2rem;
+		}
+		.elt-stats {
+			justify-content: center;
+		}
+	}
+</style>

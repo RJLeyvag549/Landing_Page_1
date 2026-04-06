@@ -1,0 +1,199 @@
+---
+
+---
+
+<section id="challenge" class="challenge">
+	<div class="challenge-header">
+		<h2 class="section-title typing-title">
+			El <span class="gradient-text">Desafío</span>: Laboratorio de Óptica Cuántica
+		</h2>
+		<p class="section-subtitle">
+			Identificación de brechas críticas en el proceso actual de
+			caracterización de frentes de onda.
+		</p>
+	</div>
+
+	<div class="challenge-grid">
+		<div class="challenge-item glass">
+			<div class="challenge-icon">01</div>
+			<h3 class="challenge-name">Incomunicación de Datos</h3>
+			<p class="challenge-desc">
+				El "Agujero Negro" analítico: incapacidad de transformar grandes
+				volúmenes de píxeles en métricas cuantitativas (Fase) en tiempo
+				real.
+			</p>
+		</div>
+		<div class="challenge-item glass">
+			<div class="challenge-icon">02</div>
+			<h3 class="challenge-name">Rigidez de los Modelos</h3>
+			<p class="challenge-desc">
+				Los algoritmos tradicionales fallan ante el ruido electrónico y
+				distorsiones físicas, mostrando incapacidad para procesar
+				señales no lineales.
+			</p>
+		</div>
+		<div class="challenge-item glass">
+			<div class="challenge-icon">03</div>
+			<h3 class="challenge-name">Fragmentación Operativa</h3>
+			<p class="challenge-desc">
+				Sistema Offline: los componentes operan aislados, generando un
+				flujo manual y lento que impide la retroalimentación inmediata
+				del experimento.
+			</p>
+		</div>
+		<div class="challenge-item glass">
+			<div class="challenge-icon">04</div>
+			<h3 class="challenge-name">Fragilidad del Hardware</h3>
+			<p class="challenge-desc">
+				Infraestructura de sensibilidad extrema y alto costo que limita
+				la manipulación manual, requiriendo automatización para proteger
+				su integridad.
+			</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.challenge {
+		text-align: center;
+	}
+
+	.section-header {
+		margin-bottom: 4rem;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		color: white;
+	}
+
+	.section-subtitle {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		max-width: 700px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.challenge-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		margin-bottom: 4rem;
+	}
+
+	.challenge-item {
+		padding: 2.5rem;
+		border-radius: 24px;
+		text-align: left;
+		transition: transform 0.3s;
+	}
+
+	.challenge-item:hover {
+		transform: translateY(-5px);
+	}
+
+	.challenge-icon {
+		font-size: 2rem;
+		font-weight: 800;
+		color: var(--accent-cyan);
+		margin-bottom: 1rem;
+		opacity: 0.5;
+	}
+
+	.challenge-name {
+		font-size: 1.25rem;
+		color: white;
+		margin-bottom: 1rem;
+		font-family: "Plus Jakarta Sans", sans-serif;
+	}
+
+	.challenge-desc {
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+		line-height: 1.6;
+	}
+
+	.challenge-visual-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 4rem;
+		border-radius: 32px;
+		align-items: center;
+		text-align: left;
+		gap: 3rem;
+	}
+
+	.visual-title {
+		font-size: 2rem;
+		color: white;
+		margin-bottom: 1.5rem;
+	}
+
+	.visual-text p {
+		color: var(--text-secondary);
+		font-size: 1.1rem;
+		line-height: 1.8;
+	}
+
+	.elt-viz {
+		width: 100%;
+		height: 250px;
+		background: #0d1623;
+		border-radius: 20px;
+		position: relative;
+		overflow: hidden;
+		border: 1px solid var(--glass-border);
+	}
+
+	.mirror-segments {
+		position: absolute;
+		inset: 20%;
+		background-image: radial-gradient(
+			circle,
+			var(--accent-blue) 1px,
+			transparent 1.5px
+		);
+		background-size: 20px 20px;
+		opacity: 0.3;
+	}
+
+	.wavefront-line {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			var(--accent-cyan),
+			transparent
+		);
+		animation: scan 3s infinite linear;
+	}
+
+	@keyframes scan {
+		0% {
+			transform: translateY(-50px);
+			opacity: 0;
+		}
+		50% {
+			opacity: 1;
+		}
+		100% {
+			transform: translateY(50px);
+			opacity: 0;
+		}
+	}
+
+	/* Global gradient-text is used from Layout.astro */
+
+	@media (max-width: 968px) {
+		.challenge-visual-container {
+			grid-template-columns: 1fr;
+			padding: 2rem;
+		}
+	}
+</style>

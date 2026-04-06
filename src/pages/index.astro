@@ -1,11 +1,71 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import Team from "../components/Team.astro";
+import Challenge from "../components/Challenge.astro";
+import Propuesta from "../components/Propuesta.astro";
+import Justificacion from "../components/Justificacion.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Timeline - Terminal Style (Chosen)
+import TimelineTerminal from "../components/TimelineTerminal.astro";
+import Architecture from "../components/Architecture.astro";
+
+// Timeline - Git Style (Backup/Commented)
+// import TimelineGit from '../components/TimelineGit.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<Navbar />
+	<main>
+		<Hero />
+		<Team />
+		<Challenge />
+		<Propuesta />
+		<Justificacion />
+
+		<!-- Nueva Sección de Arquitectura -->
+		<Architecture />
+
+		<!-- Seccion de Cronograma Definitiva -->
+		<TimelineTerminal />
+
+		{
+			/* 
+			Respaldo de estilo alternativo solicitado:
+			<TimelineGit /> 
+		*/
+		}
+	</main>
+	<footer class="footer">
+		<div class="footer-content">
+			<p>
+				&copy; 2026 Tesis ELT - Laboratorio de Óptica Cuántica. Todos
+				los derechos reservados.
+			</p>
+		</div>
+	</footer>
 </Layout>
+
+<style>
+	main {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+	}
+
+	.footer {
+		padding: 4rem 2rem;
+		text-align: center;
+		border-top: 1px solid var(--glass-border);
+		margin-top: 6rem;
+		color: var(--text-secondary);
+		font-size: 0.9rem;
+	}
+
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+</style>

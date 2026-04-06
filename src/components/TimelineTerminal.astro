@@ -1,0 +1,153 @@
+---
+const activities = [
+	{ id: "1.1-1.4", text: "Investigación y Estado del Arte: Zernike, CNNs y ESO/ELT.", date: "30-03 al 20-04", status: "IN_PROGRESS", type: "EXEC" },
+	{ id: "2.1-2.4", text: "Modelado y Diseño Lógico: BPMN, IEEE 830 y Arq.", date: "21-04 al 12-05", status: "PENDING", type: "PLAN" },
+	{ id: "3.1-3.2", text: "Montaje del Simulador Óptico: Generadores y Spots.", date: "04-05 al 31-05", status: "PENDING", type: "WORK" },
+	{ id: "4.1-4.2", text: "Diseño y Configuración CNN: Arq. y Entorno GPU.", date: "18-05 al 31-05", status: "PENDING", type: "AI" },
+	{ id: "3.3-3.4", text: "Datasets: Ruido y Etiquetado sintético.", date: "01-06 al 21-06", status: "PENDING", type: "DATA" },
+	{ id: "4.3", text: "Entrenamiento Modelo (Iteración 1): Regresión.", date: "01-06 al 15-07", status: "PENDING", type: "TRAIN" },
+	{ id: "4.5", text: "Optimización Precisión: Ajuste fino de la red.", date: "29-06 al 15-07", status: "PENDING", type: "AI" },
+	{ id: "5.1-5.3", text: "Arquitectura Docker e Inferencia: Imágenes y Orq.", date: "29-06 al 15-07", status: "PENDING", type: "SYS" },
+	{ id: "HITO", text: "HITO: ENTREGA TALLER I (Software + IA)", date: "15-07-2026", status: "MILESTONE", type: "POST" },
+	{ id: "4.4", text: "Ajuste de hiperparámetros y funciones de pérdida.", date: "03-08 al 31-08", status: "PENDING", type: "AI" },
+	{ id: "6.1", text: "Obtención de muestras reales: Capturas mesa óptica.", date: "13-04 al 05-12", status: "PENDING", type: "LAB" },
+	{ id: "3.5", text: "Verificación estadística avanzada vs Realidad.", date: "10-09 al 15-11", status: "PENDING", type: "TEST" },
+	{ id: "5.4", text: "Pruebas de portabilidad y despliegue Docker.", date: "01-10 al 20-10", status: "PENDING", type: "SYS" },
+	{ id: "6.2-6.3", text: "Fine-tuning y Pruebas de Contraste: Validación.", date: "15-10 al 15-11", status: "PENDING", type: "LAB" },
+	{ id: "6.4", text: "Análisis de robustez: Ruido y desalineación.", date: "16-11 al 30-11", status: "PENDING", type: "TEST" },
+	{ id: "6.5", text: "Informe final de título y conclusiones.", date: "01-12 al 05-12", status: "PENDING", type: "DOC" }
+];
+---
+
+<section id="timeline" class="terminal-timeline">
+	<div class="section-header">
+		<h2 class="section-title typing-title">Cronograma de <span class="gradient-text">Actividades</span></h2>
+		<p class="section-subtitle">Programación temporal detallada gestionada vía terminal distribuida.</p>
+	</div>
+
+	<div class="terminal-container glass">
+		<div class="terminal-header">
+			<div class="terminal-dots">
+				<span class="dot-red"></span>
+				<span class="dot-yellow"></span>
+				<span class="dot-green"></span>
+			</div>
+			<div class="terminal-title">cron_timeline.sh — 1120×720</div>
+		</div>
+		<div class="terminal-body">
+			<p class="terminal-command">$ ./fetch_complete_timeline.sh --verbose --all-stages</p>
+			<p class="terminal-output">Fetching 16 activities for Project "CNN-Wavefront"... Done.</p>
+			<div class="terminal-logs">
+				{activities.map((act) => (
+					<div class={`log-line ${act.status.toLowerCase()}`}>
+						<span class="log-type">[{act.type}]</span>
+						<span class="log-id">{act.id}</span>
+						<span class="log-text">{act.text}</span>
+						<span class="log-spacer"></span>
+						<span class="log-date">{act.date}</span>
+						<div class={`log-status-badge ${act.status.toLowerCase()}`}>{act.status}</div>
+					</div>
+				))}
+			</div>
+			<p class="terminal-cursor">_</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.terminal-timeline {
+		padding: 4rem 2rem;
+		text-align: center;
+	}
+
+	.section-header { margin-bottom: 4rem; }
+	.section-title { font-size: 3rem; color: white; margin-bottom: 1rem; }
+	.section-subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+
+	.terminal-container {
+		max-width: 1100px;
+		margin: 0 auto;
+		border-radius: 12px;
+		overflow: hidden;
+		background: #011627;
+		border: 1px solid #23415A;
+		font-family: 'Fira Code', 'Courier New', monospace;
+		box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+	}
+
+	.terminal-header {
+		background: #1B2B34;
+		padding: 1rem 1.5rem;
+		display: flex;
+		align-items: center;
+		border-bottom: 1px solid #23415A;
+	}
+
+	.terminal-dots { display: flex; gap: 0.5rem; }
+	.terminal-dots span { width: 12px; height: 12px; border-radius: 50%; }
+	.dot-red { background: #FF5F56; }
+	.dot-yellow { background: #FFBD2E; }
+	.dot-green { background: #27C93F; }
+
+	.terminal-title { flex: 1; text-align: center; font-size: 0.8rem; color: #8B949E; }
+
+	.terminal-body {
+		padding: 2.5rem;
+		text-align: left;
+		font-size: 0.9rem;
+		line-height: 1.6;
+	}
+
+	.terminal-command { color: #ADDB67; margin-bottom: 1rem; }
+	.terminal-output { color: #F78C6C; margin-bottom: 2rem; }
+
+	.terminal-logs {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.log-line { 
+		display: flex; 
+		gap: 1.25rem; 
+		padding: 4px 8px;
+		border-radius: 4px;
+		align-items: center;
+	}
+
+	.log-line:hover { background: rgba(255,255,255,0.03); }
+
+	.log-type { color: #82AAFF; min-width: 70px; font-weight: 700; }
+	.log-id { color: #F78C6C; min-width: 80px; }
+	.log-text { color: #D6DEEB; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+	.log-spacer { flex: 0.1; }
+	.log-date { color: #8B949E; font-size: 0.8rem; min-width: 120px; text-align: right; }
+
+	.log-status-badge {
+		font-size: 0.65rem;
+		padding: 2px 8px;
+		border-radius: 4px;
+		background: rgba(255,255,255,0.05);
+		color: #8B949E;
+		min-width: 85px;
+		text-align: center;
+		font-weight: 800;
+	}
+
+	.in_progress .log-status-badge { background: rgba(59, 130, 246, 0.2); color: #82AAFF; border: 1px solid rgba(130, 170, 255, 0.3); }
+	.milestone .log-status-badge { background: rgba(236, 196, 141, 0.2); color: #ECC48D; border: 1px solid rgba(236, 196, 141, 0.3); }
+	.milestone .log-text { color: #ECC48D; font-weight: 700; }
+
+	.terminal-cursor { color: #82AAFF; animation: blink 1s infinite; margin-top: 2rem; font-size: 1.2rem; }
+
+	@keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+
+	/* Global gradient-text is used from Layout.astro */
+
+	@media (max-width: 768px) {
+		.log-line { flex-wrap: wrap; gap: 0.5rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+		.log-spacer { display: none; }
+		.log-text { width: 100%; white-space: normal; }
+		.log-date { text-align: left; }
+	}
+</style>
