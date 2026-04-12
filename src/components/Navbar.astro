@@ -9,10 +9,11 @@ import logoUBB from "../assets/logo_UBB.png";
 			<span>SRF shack-hartmann</span>
 		</div>
 		<div class="nav-links">
-			<a href="#hero">Inicio</a>
+			<a href="#">Inicio</a>
 			<a href="#challenge">Desafío</a>
 			<a href="#propuesta">Propuesta</a>
 			<a href="#justificacion">Justificación</a>
+			<a href="#architecture">Estructura</a>
 			<a href="#timeline">Cronograma</a>
 		</div>
 		<div class="nav-actions">
@@ -129,3 +130,37 @@ import logoUBB from "../assets/logo_UBB.png";
 		}
 	}
 </style>
+
+<script>
+	function initNavbar() {
+		const links = document.querySelectorAll('.nav-links a');
+		
+		links.forEach(link => {
+			link.addEventListener('click', (e) => {
+				const href = link.getAttribute('href');
+				
+				// Si es el link de Inicio o uno interno
+				if (href && href.startsWith('#')) {
+					e.preventDefault();
+					
+					if (href === '#') {
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth'
+						});
+					} else {
+						const target = document.querySelector(href);
+						if (target) {
+							target.scrollIntoView({
+								behavior: 'smooth'
+							});
+						}
+					}
+				}
+			});
+		});
+	}
+
+	initNavbar();
+	document.addEventListener('astro:page-load', initNavbar);
+</script>

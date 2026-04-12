@@ -3,7 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href={`${import.meta.env.BASE_URL}favicon.svg`}
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>Anteproyecto</title>
 
@@ -46,6 +50,7 @@
 	html,
 	body {
 		margin: 0;
+		padding-top: 3rem;
 		background-color: var(--bg-color);
 		color: var(--text-primary);
 		font-family: "Inter", sans-serif;
@@ -160,8 +165,13 @@
 	}
 
 	@keyframes blink-global {
-		from, to { opacity: 1; }
-		50% { opacity: 0; }
+		from,
+		to {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0;
+		}
 	}
 
 	.typing-title.finished .cursor {
@@ -212,22 +222,28 @@
 
 <script>
 	function initTypingAnimations() {
-		const titles = document.querySelectorAll('.typing-title');
-		
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const el = entry.target as HTMLElement;
-					if (el.dataset.animating !== 'true' && el.dataset.finished !== 'true') {
-						startTyping(el);
-					}
-				}
-			});
-		}, { threshold: 0.2 });
+		const titles = document.querySelectorAll(".typing-title");
 
-		titles.forEach(title => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const el = entry.target as HTMLElement;
+						if (
+							el.dataset.animating !== "true" &&
+							el.dataset.finished !== "true"
+						) {
+							startTyping(el);
+						}
+					}
+				});
+			},
+			{ threshold: 0.2 },
+		);
+
+		titles.forEach((title) => {
 			const el = title as HTMLElement;
-			
+
 			// Fijar altura para evitar Layout Shift (que el contenido se baje)
 			const currentHeight = el.getBoundingClientRect().height;
 			el.style.minHeight = `${currentHeight}px`;
@@ -235,19 +251,20 @@
 			// Store original HTML and text
 			el.dataset.fullHtml = el.innerHTML;
 			el.dataset.fullText = el.textContent?.trim() || "";
-			
+
 			// Preparar para escritura
-			el.innerHTML = '<span class="typing-target"></span><span class="cursor">_</span>';
+			el.innerHTML =
+				'<span class="typing-target"></span><span class="cursor">_</span>';
 
 			// Marcar como listo e iniciar observación
-			el.classList.add('ready');
+			el.classList.add("ready");
 			observer.observe(el);
 		});
 	}
 
 	function startTyping(el: HTMLElement) {
-		el.dataset.animating = 'true';
-		const target = el.querySelector('.typing-target');
+		el.dataset.animating = "true";
+		const target = el.querySelector(".typing-target");
 		const fullText = el.dataset.fullText || "";
 		const fullHtml = el.dataset.fullHtml || "";
 		let i = 0;
@@ -258,18 +275,18 @@
 					target.textContent += fullText.charAt(i);
 				}
 				i++;
-				
+
 				// Optional: Check if we should restore HTML early to show gradients
 				// If the typed text is long enough to include the start of a gradient span
 				// we can just swap to full HTML once we're close to the end or have a specific marker.
-				
+
 				setTimeout(type, Math.random() * 40 + 30);
 			} else {
 				// Finish: Restore full HTML to ensure gradients and links work
 				el.innerHTML = fullHtml;
-				el.classList.add('finished');
-				el.dataset.finished = 'true';
-				el.dataset.animating = 'false';
+				el.classList.add("finished");
+				el.dataset.finished = "true";
+				el.dataset.animating = "false";
 			}
 		}
 
@@ -277,9 +294,13 @@
 	}
 
 	// Initialize on load
-	window.addEventListener('scroll', () => {
-		// Just to ensure observer triggers if already in view
-	}, { once: true });
+	window.addEventListener(
+		"scroll",
+		() => {
+			// Just to ensure observer triggers if already in view
+		},
+		{ once: true },
+	);
 
-	document.addEventListener('DOMContentLoaded', initTypingAnimations);
+	document.addEventListener("DOMContentLoaded", initTypingAnimations);
 </script>
