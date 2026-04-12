@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
 		<meta name="generator" content={Astro.generator} />
 		<title>Anteproyecto</title>
 
@@ -46,8 +46,6 @@
 	html,
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
 		background-color: var(--bg-color);
 		color: var(--text-primary);
 		font-family: "Inter", sans-serif;
@@ -74,7 +72,7 @@
 		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 		opacity: 0.05;
 		pointer-events: none;
-		z-index: 1000;
+		z-index: 5;
 		mix-blend-mode: overlay;
 	}
 
@@ -144,6 +142,11 @@
 		position: relative;
 		display: inline-block;
 		min-height: 1.2em;
+		visibility: hidden;
+	}
+
+	.typing-title.ready {
+		visibility: visible;
 	}
 
 	.typing-title .cursor {
@@ -195,14 +198,14 @@
 	}
 
 	section {
-		padding: 80px 20px;
+		padding: 40px 20px;
 		max-width: 1200px;
 		margin: 0 auto;
 	}
 
 	@media (max-width: 768px) {
 		section {
-			padding: 60px 20px;
+			padding: 30px 20px;
 		}
 	}
 </style>
@@ -224,12 +227,20 @@
 
 		titles.forEach(title => {
 			const el = title as HTMLElement;
+			
+			// Fijar altura para evitar Layout Shift (que el contenido se baje)
+			const currentHeight = el.getBoundingClientRect().height;
+			el.style.minHeight = `${currentHeight}px`;
+
 			// Store original HTML and text
 			el.dataset.fullHtml = el.innerHTML;
 			el.dataset.fullText = el.textContent?.trim() || "";
 			
-			// Clear and prepare
+			// Preparar para escritura
 			el.innerHTML = '<span class="typing-target"></span><span class="cursor">_</span>';
+
+			// Marcar como listo e iniciar observación
+			el.classList.add('ready');
 			observer.observe(el);
 		});
 	}

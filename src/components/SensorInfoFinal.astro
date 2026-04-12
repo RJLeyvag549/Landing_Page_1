@@ -1,0 +1,384 @@
+---
+import shSensor from "../assets/sh-sensor-internal.png";
+import industryAstronomy from "../assets/industry-astronomy.png";
+import industryEye from "../assets/industry-eye.png";
+import industryMetrology from "../assets/industry-metrology.png";
+import industryComms from "../assets/industry-comms.png";
+---
+
+<section class="sensor-final-section" id="sensor-info">
+	<div class="container">
+		<div class="header-full">
+			<h2 class="section-title">
+				Tecnología de Vanguardia: <span class="gradient-text"
+					>El Sensor Shack-Hartmann</span
+				>
+			</h2>
+		</div>
+
+		<div class="value-nodes-layout">
+			<!-- Corner 1: Astronomy -->
+			<div class="industry-node top-left glass">
+				<div
+					class="node-image"
+					style={`background-image: url(${industryAstronomy.src})`}
+				>
+				</div>
+				<div class="node-content">
+					<span class="tag">Astronomía</span>
+					<h3>Óptica Adaptativa</h3>
+					<p>
+						Corrección de turbulencia atmosférica en tiempo real
+						para telescopios de clase mundial.
+					</p>
+				</div>
+			</div>
+
+			<!-- Corner 2: Health -->
+			<div class="industry-node top-right glass">
+				<div
+					class="node-image"
+					style={`background-image: url(${industryEye.src})`}
+				>
+				</div>
+				<div class="node-content">
+					<span class="tag">Salud</span>
+					<h3>Oftalmología</h3>
+					<p>
+						Mapeo corneal para cirugías LASIK ultra-precisas y
+						diagnóstico ocular avanzado.
+					</p>
+				</div>
+			</div>
+
+			<!-- Central Hub: Definition -->
+			<div class="central-info-hub glass">
+				<div class="hub-image">
+					<img
+						src={shSensor.src}
+						alt="Hardware Shack-Hartmann"
+						class="sh-img"
+					/>
+					<div class="hub-glow"></div>
+				</div>
+				<div class="hub-text">
+					<h3>Sensor Shack Hartmann</h3>
+					<div class="def-text">
+						<p>
+							Es un instrumento de metrología óptica de alta
+							precisión diseñado para <strong
+								>caracterizar frentes de onda</strong
+							>. Mediante una matriz de microlentes, descompone la
+							luz en un patrón de puntos (Spot Diagram) sobre un
+							detector digital.
+						</p>
+						<p>
+							Al analizar el desplazamiento de estos puntos,
+							reconstruimos la forma exacta del frente de onda,
+							eliminando aberraciones invisibles al ojo humano.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Corner 3: Metrology -->
+			<div class="industry-node bottom-left glass">
+				<div
+					class="node-image"
+					style={`background-image: url(${industryMetrology.src})`}
+				>
+				</div>
+				<div class="node-content">
+					<span class="tag">Industria</span>
+					<h3>Metrología Láser</h3>
+					<p>
+						Control de calidad en la fabricación de ópticas de alta
+						fidelidad y caracterización de haces.
+					</p>
+				</div>
+			</div>
+
+			<!-- Corner 4: Defense -->
+			<div class="industry-node bottom-right glass">
+				<div
+					class="node-image"
+					style={`background-image: url(${industryComms.src})`}
+				>
+				</div>
+				<div class="node-content">
+					<span class="tag">Espacio</span>
+					<h3>Comunicaciones Ópticas</h3>
+					<p>
+						Estabilización de enlaces láser para transmisión de
+						datos a larga distancia y satelital.
+					</p>
+				</div>
+			</div>
+
+			<!-- SVG Connectors (Visible on desktop) -->
+			<svg
+				class="connectors-svg"
+				viewBox="0 0 1000 800"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<line
+					x1="250"
+					y1="200"
+					x2="500"
+					y2="350"
+					stroke="url(#cyan-gradient)"
+					stroke-width="1"
+					stroke-dasharray="5 5"></line>
+				<line
+					x1="750"
+					y1="200"
+					x2="500"
+					y2="350"
+					stroke="url(#cyan-gradient)"
+					stroke-width="1"
+					stroke-dasharray="5 5"></line>
+				<line
+					x1="250"
+					y1="500"
+					x2="500"
+					y2="350"
+					stroke="url(#cyan-gradient)"
+					stroke-width="1"
+					stroke-dasharray="5 5"></line>
+				<line
+					x1="750"
+					y1="500"
+					x2="500"
+					y2="350"
+					stroke="url(#cyan-gradient)"
+					stroke-width="1"
+					stroke-dasharray="5 5"></line>
+				<defs>
+					<linearGradient
+						id="cyan-gradient"
+						x1="0"
+						y1="0"
+						x2="1"
+						y2="1"
+					>
+						<stop
+							offset="0%"
+							stop-color="#00f2fe"
+							stop-opacity="0.1"></stop>
+						<stop
+							offset="50%"
+							stop-color="#00f2fe"
+							stop-opacity="0.5"></stop>
+						<stop
+							offset="100%"
+							stop-color="#00f2fe"
+							stop-opacity="0.1"></stop>
+					</linearGradient>
+				</defs>
+			</svg>
+		</div>
+	</div>
+</section>
+
+<style>
+	.sensor-final-section {
+		padding: 4rem 2rem;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.container {
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.section-title {
+		font-size: 3.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.header-full {
+		text-align: center;
+		margin-bottom: 4rem;
+		max-width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.value-nodes-layout {
+		position: relative;
+		height: 700px;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		gap: 2rem;
+		align-items: center;
+		justify-items: center;
+	}
+
+	/* Central Hub */
+	.central-info-hub {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+		z-index: 10;
+		width: 400px;
+		padding: 3rem;
+		border-radius: 40px;
+		background: rgba(13, 22, 35, 0.8);
+		border: 1px solid var(--accent-cyan);
+		box-shadow: 0 0 50px rgba(0, 242, 254, 0.1);
+		text-align: center;
+		backdrop-filter: blur(20px);
+	}
+
+	.hub-image {
+		margin-bottom: 2rem;
+		position: relative;
+	}
+
+	.sh-img {
+		width: 180px;
+		border-radius: 20px;
+		position: relative;
+		z-index: 2;
+	}
+
+	.hub-glow {
+		position: absolute;
+		inset: -20px;
+		background: radial-gradient(
+			circle,
+			rgba(0, 242, 254, 0.2),
+			transparent 70%
+		);
+		z-index: 1;
+	}
+
+	.hub-text h3 {
+		font-size: 1.8rem;
+		color: white;
+		margin-bottom: 1.5rem;
+	}
+
+	.def-text p {
+		font-size: 1rem;
+		color: var(--text-secondary);
+		line-height: 1.7;
+		margin-bottom: 1rem;
+	}
+
+	.def-text strong {
+		color: var(--accent-cyan);
+	}
+
+	/* Industry Nodes */
+	.industry-node {
+		width: 250px;
+		border-radius: 24px;
+		overflow: hidden;
+		transition: all 0.4s ease;
+		border: 1px solid var(--glass-border);
+		z-index: 5;
+	}
+
+	.industry-node:hover {
+		transform: translateY(-10px);
+		border-color: var(--accent-cyan);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+	}
+
+	.node-image {
+		height: 110px;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+	}
+
+	.node-image::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to top, #0d1623, transparent);
+	}
+
+	.node-content {
+		padding: 1.5rem;
+	}
+
+	.node-content h3 {
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+		color: white;
+	}
+
+	.node-content p {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		line-height: 1.5;
+	}
+
+	.tag {
+		font-size: 0.65rem;
+		text-transform: uppercase;
+		font-weight: 800;
+		color: var(--accent-cyan);
+		margin-bottom: 0.5rem;
+		display: block;
+		letter-spacing: 0.1em;
+	}
+
+	/* Micro-positioning for corners on desktop grid */
+	.top-left {
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+		align-self: start;
+	}
+	.top-right {
+		grid-column: 3 / 4;
+		grid-row: 1 / 2;
+		align-self: start;
+	}
+	.bottom-left {
+		grid-column: 1 / 2;
+		grid-row: 3 / 4;
+		align-self: end;
+	}
+	.bottom-right {
+		grid-column: 3 / 4;
+		grid-row: 3 / 4;
+		align-self: end;
+	}
+
+	/* Connectors */
+	.connectors-svg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		pointer-events: none;
+	}
+
+	/* Responsive */
+	@media (max-width: 1100px) {
+		.value-nodes-layout {
+			height: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+		.central-info-hub {
+			order: -1;
+			width: 100%;
+			max-width: 600px;
+		}
+		.industry-node {
+			width: 100%;
+			max-width: 600px;
+		}
+		.connectors-svg {
+			display: none;
+		}
+	}
+</style>

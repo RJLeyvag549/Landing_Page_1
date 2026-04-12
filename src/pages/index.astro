@@ -2,8 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
-import Team from "../components/Team.astro";
 import Challenge from "../components/Challenge.astro";
+import SensorInfoFinal from "../components/SensorInfoFinal.astro";
 import Propuesta from "../components/Propuesta.astro";
 import Justificacion from "../components/Justificacion.astro";
 
@@ -19,8 +19,8 @@ import Architecture from "../components/Architecture.astro";
 	<Navbar />
 	<main>
 		<Hero />
-		<Team />
 		<Challenge />
+		<SensorInfoFinal />
 		<Propuesta />
 		<Justificacion />
 
@@ -39,10 +39,38 @@ import Architecture from "../components/Architecture.astro";
 	</main>
 	<footer class="footer">
 		<div class="footer-content">
-			<p>
+			<div class="footer-team">
+				<div class="footer-team-wrapper">
+					<div class="footer-team-member">
+						<span class="role">Estudiante:</span>
+						<strong>Roberto Javier Leyva Guerrero</strong>
+						<span class="separator">-</span>
+						<a href="mailto:roberto.leyva2301@alumnos.ubiobio.cl"
+							>roberto.leyva2301@alumnos.ubiobio.cl</a
+						>
+					</div>
+					<div class="footer-team-member">
+						<span class="role">Profesor Guía:</span>
+						<strong>Luis Cabrera Crot</strong>
+						<span class="separator">-</span>
+						<a href="mailto:lcabrera@ubiobio.cl"
+							>lcabrera@ubiobio.cl</a
+						>
+					</div>
+					<div class="footer-team-member">
+						<span class="role">Co-Guía (Asesor):</span>
+						<strong>Alvaro Sebastian Alarcon Cuevas</strong>
+						<span class="separator">-</span>
+						<a href="mailto:asalarcon@ubiobio.cl"
+							>asalarcon@ubiobio.cl</a
+						>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copy">
 				&copy; 2026 Tesis ELT - Laboratorio de Óptica Cuántica. Todos
 				los derechos reservados.
-			</p>
+			</div>
 		</div>
 	</footer>
 </Layout>
@@ -52,14 +80,14 @@ import Architecture from "../components/Architecture.astro";
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		gap: 6rem;
+		gap: 2rem;
 	}
 
 	.footer {
-		padding: 4rem 2rem;
+		padding: 1rem 2rem;
 		text-align: center;
 		border-top: 1px solid var(--glass-border);
-		margin-top: 6rem;
+		margin-top: 2rem;
 		color: var(--text-secondary);
 		font-size: 0.9rem;
 	}
@@ -67,5 +95,70 @@ import Architecture from "../components/Architecture.astro";
 	.footer-content {
 		max-width: 1200px;
 		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.footer-team {
+		text-align: left;
+		margin-bottom: 0rem;
+		border-bottom: 1px solid var(--glass-border);
+		padding-bottom: 1rem;
+	}
+
+	.footer-team-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		width: max-content;
+		margin: 0;
+		align-items: flex-start;
+	}
+
+	.footer-team-member {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		gap: 0.5rem;
+		align-items: center;
+		white-space: nowrap;
+	}
+
+	.footer-team-member .separator {
+		color: var(--text-secondary);
+		opacity: 0.5;
+	}
+
+	.footer-team-member .role {
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: var(--accent-cyan);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.footer-team-member strong {
+		color: var(--text-primary);
+		font-size: 1rem;
+		font-family: "Plus Jakarta Sans", sans-serif;
+	}
+
+	.footer-team-member a {
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-size: 0.85rem;
+	}
+
+	.footer-team-member a:hover {
+		color: var(--accent-blue);
+	}
+
+	.footer-copy {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		margin-top: 1rem;
+		text-align: center;
+		width: 100%;
 	}
 </style>

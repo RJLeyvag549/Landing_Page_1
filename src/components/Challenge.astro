@@ -1,57 +1,154 @@
 ---
-
+import opticalSetupClean from "../assets/optical-setup-clean.png";
 ---
 
 <section id="challenge" class="challenge">
-	<div class="challenge-header">
-		<h2 class="section-title typing-title">
-			El <span class="gradient-text">Desafío</span>: Laboratorio de Óptica Cuántica
-		</h2>
-		<p class="section-subtitle">
-			Identificación de brechas críticas en el proceso actual de
-			caracterización de frentes de onda.
-		</p>
-	</div>
+	<div class="process-section">
+		<div class="process-header">
+			<h2 class="section-title">Flujo Actual en la Mesa Óptica</h2>
+			<p class="section-subtitle">
+				La mesa óptica es la plataforma estructural antivibraciones del
+				laboratorio donde generamos, deformamos y atrapamos la luz. Este
+				es el proceso físico necesario antes de integrar inteligencia
+				artificial.
+			</p>
+		</div>
 
-	<div class="challenge-grid">
-		<div class="challenge-item glass">
-			<div class="challenge-icon">01</div>
-			<h3 class="challenge-name">Incomunicación de Datos</h3>
-			<p class="challenge-desc">
-				El "Agujero Negro" analítico: incapacidad de transformar grandes
-				volúmenes de píxeles en métricas cuantitativas (Fase) en tiempo
-				real.
-			</p>
-		</div>
-		<div class="challenge-item glass">
-			<div class="challenge-icon">02</div>
-			<h3 class="challenge-name">Rigidez de los Modelos</h3>
-			<p class="challenge-desc">
-				Los algoritmos tradicionales fallan ante el ruido electrónico y
-				distorsiones físicas, mostrando incapacidad para procesar
-				señales no lineales.
-			</p>
-		</div>
-		<div class="challenge-item glass">
-			<div class="challenge-icon">03</div>
-			<h3 class="challenge-name">Fragmentación Operativa</h3>
-			<p class="challenge-desc">
-				Sistema Offline: los componentes operan aislados, generando un
-				flujo manual y lento que impide la retroalimentación inmediata
-				del experimento.
-			</p>
-		</div>
-		<div class="challenge-item glass">
-			<div class="challenge-icon">04</div>
-			<h3 class="challenge-name">Fragilidad del Hardware</h3>
-			<p class="challenge-desc">
-				Infraestructura de sensibilidad extrema y alto costo que limita
-				la manipulación manual, requiriendo automatización para proteger
-				su integridad.
-			</p>
+		<div class="process-container">
+			<!-- Interactive Info Panel (Left) -->
+			<div class="process-info-panel">
+				<div class="panel-card glass" id="process-info-card">
+					<div class="panel-number" id="panel-number">01</div>
+					<div class="panel-content">
+						<h4 class="panel-title" id="panel-title">
+							Cargando...
+						</h4>
+						<p class="panel-desc" id="panel-desc">
+							Selecciona un punto en la imagen para ver los
+							detalles del proceso.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Image with Hotspots (Right) -->
+			<div class="process-image-wrapper">
+				<div class="image-container-inner">
+					<img
+						src={opticalSetupClean.src}
+						alt="Esquema de Mesa Óptica Cuántica interactiva"
+						class="process-image glass"
+					/>
+					<div class="blue-filter-overlay"></div>
+
+					<!-- Hotspots -->
+					<div
+						class="hotspot"
+						data-index="0"
+						style="left: 15%; top: 50%;"
+					>
+						<div class="hotspot-inner"></div>
+					</div>
+					<div
+						class="hotspot"
+						data-index="1"
+						style="left: 38%; top: 50%;"
+					>
+						<div class="hotspot-inner"></div>
+					</div>
+					<div
+						class="hotspot"
+						data-index="2"
+						style="left: 63%; top: 50%;"
+					>
+						<div class="hotspot-inner"></div>
+					</div>
+					<div
+						class="hotspot"
+						data-index="3"
+						style="left: 88%; top: 50%;"
+					>
+						<div class="hotspot-inner"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
+
+<script>
+	const stepData = [
+		{
+			title: "Emisión a través de Fibra Óptica",
+			description:
+				"El proceso inicia con una fuente de luz láser generando un frente de onda inicial plano e ideal, el cual es inyectado y estabilizado a través de una fibra óptica hacia la mesa de trabajo.",
+			number: "01",
+			isError: false,
+		},
+		{
+			title: "Medio Deformador de Fase",
+			description:
+				"El haz original atraviesa un componente óptico (como un lente de prueba o un simulador de turbulencia). Este medio introduce ruido y aberraciones, deformando irreversiblemente la fase ideal de la luz entrante.",
+			number: "02",
+			isError: false,
+		},
+		{
+			title: "Modulador Espacial de Luz (SLM)",
+			description:
+				"El haz aberrado colisiona contra la matriz de cristal líquido del Modulador Espacial (SLM). Se carga digitalmente un patrón que actúa como micrófono virtual, difractando la luz entrante mediante una máscara de microlentes.",
+			number: "03",
+			isError: false,
+		},
+		{
+			title: "Captura en Cámara CMOS",
+			description:
+				"El resultado de la difracción impacta en el sensor final de la cámara CMOS capturando un Spot Diagram. El problema matemático radica aquí: transformar estos píxeles en magnitudes físicas reales es inestable y requiere cálculo iterativo offline, retrasando el experimento.",
+			number: "04",
+			isError: false,
+		},
+	];
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const hotspots = document.querySelectorAll(".hotspot");
+		const panelTitle = document.getElementById("panel-title");
+		const panelDesc = document.getElementById("panel-desc");
+		const panelNumber = document.getElementById("panel-number");
+		const panelCard = document.getElementById("process-info-card");
+
+		function activateStep(index: number) {
+			if (!panelTitle || !panelDesc || !panelNumber || !panelCard) return;
+
+			hotspots.forEach((h) => h.classList.remove("active"));
+			hotspots[index].classList.add("active");
+
+			const data = stepData[index];
+			panelNumber.textContent = data.number;
+			panelTitle.textContent = data.title;
+			panelDesc.textContent = data.description;
+
+			if (data.isError) {
+				panelTitle.classList.add("error-text");
+				panelCard.classList.add("highlight-step");
+			} else {
+				panelTitle.classList.remove("error-text");
+				panelCard.classList.remove("highlight-step");
+			}
+		}
+
+		hotspots.forEach((hotspot) => {
+			hotspot.addEventListener("click", (e) => {
+				const target = e.currentTarget as HTMLElement;
+				const idx = parseInt(target.getAttribute("data-index") || "0");
+				activateStep(idx);
+			});
+		});
+
+		// Init with first step
+		if (hotspots.length > 0) {
+			activateStep(0);
+		}
+	});
+</script>
 
 <style>
 	.challenge {
@@ -190,10 +287,195 @@
 
 	/* Global gradient-text is used from Layout.astro */
 
-	@media (max-width: 968px) {
-		.challenge-visual-container {
+	/* Process Section Styles */
+	.process-section {
+		text-align: center;
+	}
+
+	.process-header {
+		margin-bottom: 4rem;
+	}
+
+	.process-container {
+		display: grid;
+		grid-template-columns: 1fr 1.5fr;
+		gap: 3rem;
+		align-items: center;
+		text-align: left;
+	}
+
+	.process-info-panel {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.panel-card {
+		padding: 2.5rem;
+		border-radius: 24px;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid var(--glass-border);
+		transition: all 0.3s ease;
+		min-height: 380px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.panel-number {
+		font-size: 3.5rem;
+		font-weight: 800;
+		color: var(--text-secondary);
+		opacity: 0.2;
+		line-height: 1;
+		font-family: "Plus Jakarta Sans", sans-serif;
+		margin-bottom: 1rem;
+		transition: opacity 0.3s;
+	}
+
+	.panel-title {
+		font-size: 1.5rem;
+		color: white;
+		margin-bottom: 1rem;
+		font-family: "Plus Jakarta Sans", sans-serif;
+		transition: color 0.3s ease;
+	}
+
+	.panel-desc {
+		font-size: 1rem;
+		color: var(--text-secondary);
+		line-height: 1.7;
+	}
+
+	.process-image-wrapper {
+		position: relative;
+	}
+
+	.image-container-inner {
+		position: relative;
+		width: 100%;
+		border-radius: 24px;
+		overflow: hidden;
+		box-shadow: 0 10px 40px rgba(0, 242, 254, 0.1);
+		border: 1px solid var(--glass-border);
+	}
+
+	.process-image {
+		width: 100%;
+		height: 480px;
+		object-fit: cover;
+		display: block;
+	}
+
+	.blue-filter-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background:
+			radial-gradient(
+				circle at center,
+				rgba(0, 242, 254, 0.2),
+				transparent 70%
+			),
+			rgba(30, 58, 138, 0.2);
+		mix-blend-mode: overlay;
+		pointer-events: none;
+	}
+
+	/* Premium Sci-Fi Hotspots */
+	.hotspot {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 20;
+		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		background: rgba(10, 20, 30, 0.5);
+		backdrop-filter: blur(6px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.hotspot-inner {
+		width: 10px;
+		height: 10px;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 50%;
+		transition: all 0.3s ease;
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+		pointer-events: none;
+	}
+
+	.hotspot:hover {
+		transform: translate(-50%, -50%) scale(1.15);
+		border-color: rgba(255, 255, 255, 0.6);
+	}
+
+	.hotspot.active {
+		background: rgba(0, 242, 254, 0.15);
+		border-color: var(--accent-cyan);
+		box-shadow:
+			0 0 25px rgba(0, 242, 254, 0.4),
+			inset 0 0 15px rgba(0, 242, 254, 0.2);
+	}
+
+	.hotspot.active .hotspot-inner {
+		background: var(--accent-cyan);
+		box-shadow:
+			0 0 15px var(--accent-cyan),
+			0 0 30px var(--accent-cyan);
+		transform: scale(1.4);
+	}
+
+	.hotspot.active::after {
+		content: "";
+		position: absolute;
+		top: -15px;
+		left: -15px;
+		right: -15px;
+		bottom: -15px;
+		border-radius: 50%;
+		border: 1px solid var(--accent-cyan);
+		animation: radarPulse 2s cubic-bezier(0.1, 0.7, 0.1, 1) infinite;
+		pointer-events: none;
+	}
+
+	@keyframes radarPulse {
+		0% {
+			transform: scale(0.6);
+			opacity: 0.8;
+			border-width: 2px;
+		}
+		100% {
+			transform: scale(1.4);
+			opacity: 0;
+			border-width: 1px;
+		}
+	}
+
+	.highlight-step {
+		border-color: rgba(255, 100, 100, 0.3);
+		background: rgba(255, 100, 100, 0.05);
+	}
+
+	.error-text {
+		color: #ff8b8b !important;
+	}
+
+	@media (max-width: 1024px) {
+		.process-container {
 			grid-template-columns: 1fr;
-			padding: 2rem;
+		}
+		.process-image {
+			height: 300px;
+		}
+		.panel-card {
+			min-height: auto;
 		}
 	}
 </style>

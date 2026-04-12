@@ -1,31 +1,27 @@
 ---
 const points = [
 	{
-		title: "Robustez y Extracción Inteligente",
-		description: "Las CNN actúan como extractores de características avanzados, 'entendiendo' la geometría de la luz y reconstruyendo el frente de onda incluso en escenarios de alta degradación y ruido extremo.",
-		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>'
+		title: "Manejo de Datos Complejos",
+		description: "La IA funciona como un procesador inteligente que 'limpia' y entiende imágenes con mucho ruido, permitiendo que el ELT obtenga datos precisos incluso cuando la atmósfera está muy turbulenta."
 	},
 	{
-		title: "Democratización y Escalabilidad",
-		description: "El uso de hardware comercial y Docker desacopla el software del equipo físico, transformando el laboratorio en un entorno portátil y seguro para la formación práctica masiva.",
-		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>'
+		title: "Arquitectura Escalable",
+		description: "Al usar contenedores y software moderno, el sistema puede escalar para procesar en paralelo los miles de segmentos de información que genera un telescopio de 39 metros simultáneamente."
 	},
 	{
-		title: "Agilidad en el Prototipado",
-		description: "Acelera el ciclo de validación de modelos de Deep Learning al eliminar la dependencia de infraestructuras propietarias complejas, permitiendo innovación continua sin límites de hardware.",
-		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>'
+		title: "Validación sin Riesgos",
+		description: "Permite probar nuevas estrategias de procesamiento en un entorno virtual controlado antes de tocarlas en el hardware real, acelerando la innovación y protegiendo los componentes del laboratorio."
 	},
 	{
-		title: "Alto Rendimiento en Tiempo Real",
-		description: "La arquitectura garantiza una gestión eficiente de streams de video de alta carga, alcanzando la fluidez necesaria para aplicaciones de monitoreo astronómico dinámico.",
-		icon: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>'
+		title: "Respuesta en Tiempo Real",
+		description: "Optimiza la velocidad de procesamiento para que el sistema reaccione en milisegundos, garantizando que el telescopio pueda corregir su visión instantáneamente ante cualquier cambio externo."
 	}
 ];
 ---
 
 <section id="justificacion" class="justificacion">
 	<div class="justificacion-top">
-		<h2 class="section-title typing-title">Justificación del <span class="gradient-text">Proyecto</span></h2>
+		<h2 class="section-title">Justificación del <span class="gradient-text">Proyecto</span></h2>
 		<p class="section-subtitle">Alineación con la hoja de ruta tecnológica del ELT y la astronomía de próxima generación.</p>
 	</div>
 
@@ -33,7 +29,7 @@ const points = [
 		<div class="elt-text">
 			<h3 class="elt-title">Transición al Big Data Óptico</h3>
 			<p>
-				El <strong>Extremely Large Telescope (ELT)</strong> de la ESO, con su espejo de 39 metros, enfrenta desafíos sin precedentes. Los métodos de control tradicionales ya no son óptimos ante la no-linealidad de la turbulencia a gran escala y la necesidad de reducir latencias críticas.
+				El <strong>Extremely Large Telescope (ELT)</strong> de la ESO, con su espejo de 39 metros, enfrenta desafíos sin precedentes. Sus sistemas de óptica adaptativa, basados en arreglos masivos de <strong>sensores Shack-Hartmann</strong>, generan flujos de datos que los métodos de control tradicionales ya no pueden procesar de forma óptima ante la no-linealidad de la turbulencia a gran escala.
 			</p>
 		</div>
 		<div class="elt-stats">
@@ -49,23 +45,49 @@ const points = [
 	</div>
 
 	<div class="superiority-header">
-		<h3 class="superiority-title typing-title">¿Por qué la solución basada en IA es <span class="gradient-text">superior</span>?</h3>
+		<h3 class="superiority-title">¿Por qué la solución basada en IA es <span class="gradient-text">superior</span>?</h3>
 	</div>
 
-	<div class="points-grid">
-		{points.map((point) => (
-			<div class="point-card glass">
-				<div class="point-icon" set:html={point.icon} />
-				<h4 class="point-title">{point.title}</h4>
-				<p class="point-desc">{point.description}</p>
+	<div class="superiority-split glass">
+		<div class="superiority-text">
+			<h3 class="elt-title">Ventajas de la Inferencia Neuronal</h3>
+			<p>
+				La IA supera los métodos tradicionales al actuar como un <strong>procesador inteligente</strong> capaz de limpiar y entender imágenes con ruido extremo en milisegundos. 
+				Esta arquitectura no solo garantiza una respuesta instantánea para la óptica adaptativa del ELT, sino que permite <strong>escalar el sistema</strong> de forma masiva, ofreciendo un entorno de validación seguro y eliminando la dependencia de infraestructuras propietarias costosas.
+			</p>
+		</div>
+		<div class="comparison-grid">
+			<div class="comp-card legacy">
+				<span class="comp-label">Método Clásico</span>
+				<div class="comp-data">
+					<div class="data-group">
+						<span class="data-val">Arquitectura Rígida</span>
+						<span class="data-sub">Sensible al Ruido</span>
+					</div>
+					<div class="data-details">
+						<div class="detail-item"><span>•</span> Cálculo Multietapa</div>
+						<div class="detail-item"><span>•</span> Escalado Lento</div>
+						<div class="detail-item"><span>•</span> Hardware Cerrado</div>
+						<div class="detail-item"><span>•</span> Ajuste Manual</div>
+					</div>
+				</div>
 			</div>
-		))}
-	</div>
-
-	<div class="justificacion-conclusion glass">
-		<p>
-			Se aborda el reto desde una perspectiva de <strong>ingeniería de software robusta, eficiente y escalable</strong>, reduciendo drásticamente la dependencia de software propietario costoso.
-		</p>
+			<div class="comp-card highlight">
+				<span class="comp-label">Motor de IA</span>
+				<div class="comp-data">
+					<div class="data-group">
+						<span class="data-val">Arquitectura Fluida</span>
+						<span class="data-sub">Robusta y Veloz</span>
+					</div>
+					<div class="data-details">
+						<div class="detail-item"><span>•</span> Inferencia Directa</div>
+						<div class="detail-item"><span>•</span> Escalado Inmediato</div>
+						<div class="detail-item"><span>•</span> Hardware Comercial</div>
+						<div class="detail-item"><span>•</span> Aprendizaje Continuo</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -153,72 +175,128 @@ const points = [
 		color: white;
 	}
 
-	.points-grid {
+	.superiority-split {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-		gap: 2rem;
-		margin-bottom: 4rem;
-	}
-
-	.point-card {
+		grid-template-columns: 1fr auto;
 		padding: 3rem;
 		border-radius: 24px;
 		text-align: left;
-		transition: transform 0.3s;
-	}
-
-	.point-card:hover {
-		transform: translateY(-5px);
-		background: rgba(255, 255, 255, 0.05);
-	}
-
-	.point-icon {
-		width: 48px;
-		height: 48px;
-		margin-bottom: 1.5rem;
-		color: var(--accent-cyan);
-		display: flex;
+		gap: 4rem;
 		align-items: center;
-		justify-content: center;
+		margin-bottom: 2rem;
 	}
 
-	.point-title {
-		font-size: 1.4rem;
-		color: white;
-		margin-bottom: 1.25rem;
-		font-family: 'Plus Jakarta Sans', sans-serif;
-	}
-
-	.point-desc {
-		font-size: 1rem;
-		color: var(--text-secondary);
-		line-height: 1.7;
-	}
-
-	.justificacion-conclusion {
-		padding: 2.5rem;
-		border-radius: 24px;
-		max-width: 800px;
-		margin: 0 auto;
-	}
-
-	.justificacion-conclusion p {
-		font-size: 1.15rem;
+	.superiority-text p {
+		font-size: 1.1rem;
 		color: var(--text-secondary);
 		line-height: 1.8;
 		margin: 0;
 	}
 
-	/* Global gradient-text is used from Layout.astro */
+	.comparison-grid {
+		display: flex;
+		gap: 1.5rem;
+	}
+
+	.comp-card {
+		background: rgba(255, 255, 255, 0.03);
+		padding: 2.5rem;
+		border-radius: 20px;
+		border: 1px solid var(--glass-border);
+		width: 180px;
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.comp-card.highlight {
+		border-color: var(--accent-cyan);
+		background: rgba(4, 190, 254, 0.05);
+		box-shadow: 0 0 30px rgba(4, 190, 254, 0.15);
+	}
+
+	.comp-label {
+		display: block;
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		color: var(--text-secondary);
+		font-weight: 500;
+	}
+
+	.comp-card.highlight .comp-label {
+		color: var(--accent-cyan);
+		font-weight: 700;
+	}
+
+	.comp-data {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.data-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.data-val {
+		font-size: 1.4rem;
+		font-weight: 700;
+		color: white;
+		line-height: 1.2;
+	}
+
+	.data-sub {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+	}
+
+	.data-details {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.detail-item {
+		display: flex;
+		gap: 0.75rem;
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		line-height: 1.4;
+	}
+
+	.detail-item span {
+		color: rgba(255, 255, 255, 0.2);
+		font-weight: 900;
+	}
+
+	.highlight .detail-item {
+		color: #e0f2f1;
+	}
+
+	.highlight .detail-item span {
+		color: var(--accent-cyan);
+	}
+
+	.legacy {
+		opacity: 0.5;
+	}
 
 	@media (max-width: 968px) {
-		.elt-context {
+		.superiority-split {
 			grid-template-columns: 1fr;
 			padding: 2rem;
-			gap: 2rem;
+			gap: 3rem;
 		}
-		.elt-stats {
+		.comparison-grid {
 			justify-content: center;
+			flex-wrap: wrap;
 		}
+	}
 	}
 </style>

@@ -3,45 +3,41 @@
 
 <section id="propuesta" class="propuesta">
 	<div class="section-header">
-		<h2 class="section-title typing-title">Propuesta de <span class="gradient-text">Solución</span></h2>
-		<p class="section-subtitle">Un ecosistema integrado para la reconstrucción de fase mediante inferencia neuronal.</p>
+		<h2 class="section-title">Propuesta de <span class="gradient-text">Solución</span></h2>
 	</div>
 
 	<div class="propuesta-container glass">
 		<div class="propuesta-intro">
 			<p>
-				Se propone el desarrollo de un <strong>Software de Simulación y Reconstrucción de Frente de Onda Basado en Inferencia Neuronal</strong>, concebido como una plataforma que trascienda las limitaciones de los métodos actuales.
+				Se propone el desarrollo de un <strong>Sistema Digital de Reconstrucción de Frente de Onda</strong>, diseñado específicamente para optimizar la toma de datos y el análisis en una <strong>mesa óptica</strong> equipada con un sensor Shack-Hartmann de alta precisión.
 			</p>
 		</div>
 
 		<div class="axes-grid">
 			<div class="axis-item">
 				<div class="axis-icon">SW</div>
-				<h3 class="axis-title">Componente de Software</h3>
+				<h3 class="axis-title">Módulo de Control y Adquisición</h3>
 				<p class="axis-desc">
-					Aplicación con interfaz gráfica (Frontend) diseñada como centro de control. Permite configurar simulaciones atmosféricas, visualizar datos CMOS en tiempo real y obtener coeficientes de aberración instantáneamente, automatizando flujos hoy manuales.
+					Software con interfaz gráfica capaz de comunicarse directamente con la cámara del sensor Shack-Hartmann. Permite capturar y procesar el patrón de puntos (Spot Diagram) en tiempo real, automatizando la calibración y el control de parámetros en la mesa óptica.
 				</p>
 			</div>
 			<div class="axis-item">
 				<div class="axis-icon">INV</div>
-				<h3 class="axis-title">Componente de Investigación</h3>
+				<h3 class="axis-title">Inferencia Neuronal de Fase</h3>
 				<p class="axis-desc">
-					Diseño y entrenamiento de una Red Neuronal Convolucional (CNN) optimizada para regresión de fase. Se investigará la capacidad de la IA para procesar señales con baja relación señal-ruido, superando la precisión de algoritmos clásicos.
+					Investigación y entrenamiento de modelos de Deep Learning optimizados para estimar frentes de onda (Zernike Polynomials) directamente desde la imagen CMOS. Se busca superar la velocidad y robustez de los algoritmos de reconstrucción clásicos frente al ruido del laboratorio.
 				</p>
 			</div>
 		</div>
 
-		<div class="propuesta-conclusion">
-			<p>
-				Al centralizar la operación en una capa de software, no solo se logra el procesamiento en tiempo real, sino que se protege la integridad física de los componentes del laboratorio, permitiendo una experimentación científica más <strong>ágil, segura y precisa</strong>.
-			</p>
-		</div>
+
 	</div>
 </section>
 
 <style>
 	.propuesta {
 		text-align: center;
+		padding: 4rem 0;
 	}
 
 	.section-header {
@@ -49,21 +45,13 @@
 	}
 
 	.section-title {
-		font-size: 3rem;
+		font-size: 3.5rem;
 		margin-bottom: 1rem;
 		color: white;
 	}
 
-	.section-subtitle {
-		font-size: 1.1rem;
-		color: var(--text-secondary);
-		max-width: 700px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
 	.propuesta-container {
-		padding: 4rem;
+		padding: 4rem 4rem 2.5rem 4rem;
 		border-radius: 32px;
 		text-align: left;
 		max-width: 1000px;
@@ -82,7 +70,6 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 3rem;
-		margin-bottom: 3rem;
 	}
 
 	.axis-item {
@@ -123,16 +110,7 @@
 		line-height: 1.7;
 	}
 
-	.propuesta-conclusion p {
-		font-size: 1.1rem;
-		color: var(--text-secondary);
-		line-height: 1.8;
-		text-align: center;
-		border-top: 1px solid var(--glass-border);
-		padding-top: 2rem;
-	}
 
-	/* Global gradient-text is used from Layout.astro */
 
 	@media (max-width: 768px) {
 		.axes-grid {
