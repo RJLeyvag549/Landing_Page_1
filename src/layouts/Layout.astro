@@ -20,6 +20,9 @@
 		/>
 	</head>
 	<body>
+		<!-- Starfield Canvas -->
+		<canvas id="starfield"></canvas>
+
 		<!-- Noise Texture Overlay -->
 		<div class="noise-overlay"></div>
 
@@ -93,11 +96,22 @@
 		overflow: hidden;
 	}
 
+	#starfield {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		pointer-events: none;
+	}
+
 	.glow {
 		position: absolute;
 		border-radius: 50%;
 		filter: blur(140px);
 		opacity: 0.2;
+		transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
 	.glow-1 {
@@ -303,4 +317,110 @@
 	);
 
 	document.addEventListener("DOMContentLoaded", initTypingAnimations);
+</script>
+
+<script>
+	// ─── Starfield ───────────────────────────────────────────────
+	const canvas = document.getElementById('starfield') as HTMLCanvasElement;
+	const ctx = canvas?.getContext('2d');
+
+	if (canvas && ctx) {
+		const c = ctx; // TypeScript pierde el narrowing en funciones anidadas; esta const garantiza que siempre es no-nulo
+
+		function resizeCanvas() {
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
+		}
+		resizeCanvas();
+		window.addEventListener('resize', resizeCanvas);
+
+		type Star = {
+			x: number; y: number; r: number;
+			baseOpacity: number; opacity: number;
+			speed: number; phase: number;
+			color: string;
+		};
+
+		const STAR_COLORS = [
+			'255,255,255',
+			'180,210,255',
+			'200,230,255',
+			'140,190,255',
+		];
+
+		const stars: Star[] = [];
+		const NUM_STARS = 200;
+
+		for (let i = 0; i < NUM_STARS; i++) {
+			stars.push({
+				x: Math.random() * canvas.width,
+				y: Math.random() * canvas.height,
+				r: Math.random() * 1.3 + 0.2,
+				baseOpacity: Math.random() * 0.45 + 0.05,
+				opacity: 0,
+				speed: Math.random() * 0.8 + 0.2,
+				phase: Math.random() * Math.PI * 2,
+				color: STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)],
+			});
+		}
+
+		let time = 0;
+		function animateStars() {
+			c.clearRect(0, 0, canvas.width, canvas.height);
+			time += 0.012;
+
+			for (const star of stars) {
+				const twinkle = Math.sin(time * star.speed + star.phase);
+				star.opacity = star.baseOpacity + twinkle * 0.25;
+				star.opacity = Math.max(0, Math.min(1, star.opacity));
+
+				// Larger stars get a soft glow
+				if (star.r > 1.0) {
+					const grd = c.createRadialGradient(
+						star.x, star.y, 0,
+						star.x, star.y, star.r * 2.5
+					);
+					grd.addColorStop(0, `rgba(${star.color},${star.opacity})`);
+					grd.addColorStop(1, `rgba(${star.color},0)`);
+					c.beginPath();
+					c.arc(star.x, star.y, star.r * 2.5, 0, Math.PI * 2);
+					c.fillStyle = grd;
+					c.fill();
+				}
+
+				c.beginPath();
+				c.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+				c.fillStyle = `rgba(${star.color},${star.opacity})`;
+				c.fill();
+			}
+
+			requestAnimationFrame(animateStars);
+		}
+		animateStars();
+	}
+
+	// ─── Mouse parallax on glows ──────────────────────────────────
+	const glow1 = document.querySelector('.glow-1') as HTMLElement | null;
+	const glow2 = document.querySelector('.glow-2') as HTMLElement | null;
+	const glow3 = document.querySelector('.glow-3') as HTMLElement | null;
+
+	let targetX = 0, targetY = 0;
+	let currentX = 0, currentY = 0;
+
+	document.addEventListener('mousemove', (e) => {
+		targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+		targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+	});
+
+	function animateGlows() {
+		currentX += (targetX - currentX) * 0.04;
+		currentY += (targetY - currentY) * 0.04;
+
+		if (glow1) glow1.style.transform = `translate(${currentX * 40}px, ${currentY * 30}px)`;
+		if (glow2) glow2.style.transform = `translate(${currentX * -25}px, ${currentY * -20}px)`;
+		if (glow3) glow3.style.transform = `translate(${currentX * 15}px, ${currentY * 10}px)`;
+
+		requestAnimationFrame(animateGlows);
+	}
+	animateGlows();
 </script>
