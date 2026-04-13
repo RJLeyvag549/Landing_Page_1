@@ -417,6 +417,32 @@ const modules = [
 		}
 		.image-frame {
 			height: 300px;
+			max-width: 100%;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2.25rem;
+		}
+		.monitor-screen {
+			padding: 1.5rem;
+		}
+		.control-panel {
+			padding: 1.5rem;
+		}
+		.title-label {
+			font-size: 1.75rem;
+		}
+		#screen-description {
+			font-size: 1rem;
+		}
+		.image-frame {
+			height: auto;
+			aspect-ratio: 16/9;
+		}
+		.console-unit {
+			border-radius: 20px;
 		}
 	}
 </style>

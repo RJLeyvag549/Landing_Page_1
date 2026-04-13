@@ -361,7 +361,8 @@ import opticalSetupClean from "../assets/optical-setup-clean.png";
 
 	.process-image {
 		width: 100%;
-		height: 480px;
+		height: auto;
+		aspect-ratio: 16/9;
 		object-fit: cover;
 		display: block;
 	}
@@ -470,12 +471,35 @@ import opticalSetupClean from "../assets/optical-setup-clean.png";
 	@media (max-width: 1024px) {
 		.process-container {
 			grid-template-columns: 1fr;
-		}
-		.process-image {
-			height: 300px;
+			gap: 2rem;
 		}
 		.panel-card {
 			min-height: auto;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.section-title {
+			font-size: 2.25rem;
+		}
+		.hotspot {
+			width: 30px;
+			height: 30px;
+		}
+		.hotspot.active::after {
+			top: -10px;
+			left: -10px;
+			right: -10px;
+			bottom: -10px;
+		}
+		.panel-card {
+			padding: 1.5rem;
+		}
+		.panel-number {
+			font-size: 2.5rem;
+		}
+		.panel-title {
+			font-size: 1.25rem;
 		}
 	}
 </style>

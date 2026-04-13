@@ -287,15 +287,38 @@ const points = [
 	}
 
 	@media (max-width: 968px) {
+		.elt-context,
 		.superiority-split {
 			grid-template-columns: 1fr;
 			padding: 2rem;
-			gap: 3rem;
+			gap: 2.5rem;
+		}
+		.elt-stats {
+			flex-wrap: wrap;
+			justify-content: center;
 		}
 		.comparison-grid {
 			justify-content: center;
 			flex-wrap: wrap;
 		}
 	}
+
+	@media (max-width: 768px) {
+		.elt-context, .superiority-split {
+			padding: 1.5rem;
+		}
+		.section-title {
+			font-size: 2.25rem;
+		}
+		.superiority-title {
+			font-size: 1.75rem;
+		}
+		.stat-box {
+			width: 100%;
+			padding: 1.5rem;
+		}
+		.comp-card {
+			width: 100%;
+		}
 	}
 </style>
